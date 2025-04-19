@@ -1,0 +1,24 @@
+---
+- name: Install MySQL
+  package:
+    name: mariadb-server
+    state: present
+
+- name: Start and enable MySQL
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- block:
+    - name: Set MySQL root password
+      mysql_user:
+        name: root
+        password: "{{ mysql_root_password }}"
+        host_all: yes
+        login_unix_socket: /var/lib/mysql/mysql.sock
+  rescue:
+    - debug: msg="Failed to set MySQL password."
+  always:
+    - debug: msg="MySQL root password block finished."
+

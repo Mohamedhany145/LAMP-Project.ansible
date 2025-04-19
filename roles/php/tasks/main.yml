@@ -1,0 +1,15 @@
+---
+- name: Install PHP
+  package:
+    name: php
+    state: present
+
+- name: Install PHP-MySQL support
+  package:
+    name: php-mysqlnd
+    state: present
+
+- name: Restart Apache for PHP
+  service:
+    name: httpd
+    state: restarted

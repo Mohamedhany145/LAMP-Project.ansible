@@ -1,0 +1,17 @@
+---
+- name: Install Apache
+  package:
+    name: httpd
+    state: present
+
+- name: Copy index.php
+  copy:
+    src: index.php
+    dest: /var/www/html/index.php
+  notify: Restart Apache
+
+- name: Enable and start Apache
+  service:
+    name: httpd
+    enabled: yes
+    state: started

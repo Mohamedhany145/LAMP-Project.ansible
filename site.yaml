@@ -1,0 +1,8 @@
+- name: LAMP stack
+  hosts: localhost
+  become: yes
+  roles:
+    - apache
+    - mysql
+    - php
+    - firewall

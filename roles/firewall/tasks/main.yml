@@ -1,0 +1,22 @@
+---
+- name: Ensure firewalld is installed
+  package:
+    name: firewalld
+    state: present
+
+- name: Start and enable firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: Open HTTP and HTTPS ports
+  firewalld:
+    port: "{{ item }}"
+    permanent: yes
+    state: enabled
+    immediate: yes
+  with_items:
+    - 80/tcp
+    - 443/tcp
+
