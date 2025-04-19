@@ -1,9 +1,5 @@
 # LAMP Stack Automation with Ansible
 
-This project automates the installation and configuration of a LAMP (Linux, Apache, MySQL, PHP) stack using **Ansible**.
-```markdown
-# LAMP Stack Automation with Ansible
-
 Automates the deployment of a LAMP (Linux, Apache, MySQL, PHP) stack using Ansible.
 
 ## Stack Components
